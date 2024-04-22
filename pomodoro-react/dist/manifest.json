@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+    
+    "name": "Pomodoro",
+    "description": "Pomodoro for productivity.",
+    "version": "1.0.0",
+    
+    "author": "GY LEE",
+    
+    "action": {
+        "default_popup": "js/index.html"
+    },
+    "permissions": [
+        "unlimitedStorage"
+    ],
+    "chrome_url_overrides" : {
+        "newtab": "js/index.html"
+    }
+}
