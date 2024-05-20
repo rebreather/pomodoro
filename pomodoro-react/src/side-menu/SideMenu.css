@@ -1,0 +1,20 @@
+.menu-area {
+    width: 25%;
+    height: 100%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+    justify-content: center;
+    align-items: center;
+
+    .btn-timer, .btn-todo {
+       background-color: transparent; 
+       border: transparent;
+       cursor: pointer;
+       &.active {
+        border-bottom: 2px solid #000;
+    }
+    }
+}
+
