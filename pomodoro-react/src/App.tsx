@@ -1,22 +1,14 @@
-import React from 'react';
+import { useState } from 'react';
 import './App.css';
+import Menu from './side-menu/SideMenu';
+import Content from './main-content/Content';
 
 function App() {
+  const [activeContent, setActiveContent] = useState('timer');
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Hi, Hello, my name is what you want it to gggggg 
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Menu setActiveContent={setActiveContent} activeContent={activeContent} />
+      <Content activeContent={activeContent} />
     </div>
   );
 }
