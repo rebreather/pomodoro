@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Timer.css';
+import './Timer.scss';
 
 function Timer() {
     const [studyTime, setStudyTime] = useState(25);
@@ -23,6 +23,7 @@ function Timer() {
         if (!isRunning && timeChanged) {
             setTimeChanged(false);
             setTimer(studyTime * 60);
+            setIsStudy(true);
         }
         if (timer === 0) {
             setIsStudy(!isStudy);
@@ -39,27 +40,23 @@ function Timer() {
 
     return (
         <div className="timer-area">
-            <div>
-                <button onClick={() => {setStudyTime(Math.min(90, studyTime + 5)); setTimeChanged(true); }} disabled={isRunning}>Increase Study Time</button>
-                <button onClick={() => {setStudyTime(Math.max(25, studyTime - 5)); setTimeChanged(true); }} disabled={isRunning}>Decrease Study Time</button>
+            <div className='total-time'>
+                {formatTime(timer)}
             </div>
-            <div>
-                <button onClick={() => {setBreakTime(Math.min(20, breakTime + 5)); setTimeChanged(true); }} disabled={isRunning}>Increase Break Time</button>
-                <button onClick={() => {setBreakTime(Math.max(5, breakTime - 5)); setTimeChanged(true); }} disabled={isRunning}>Decrease Break Time</button>
-            </div>
-            <div>
-                <button onClick={() => setIsRunning(!isRunning)}>{isRunning ? 'Stop' : 'Start'}</button>
-            </div>
-            {!isRunning && <div>
-                Study Time: {studyTime} minutes
-                Break Time: {breakTime} minutes
+            {!isRunning && <div className='time-zone'>
+                <span className='study-time'>Study Time: {studyTime} minutes </span>
+                <button className='increase' onClick={() => {setStudyTime(Math.min(90, studyTime + 5)); setTimeChanged(true); }} disabled={isRunning}>+</button> &nbsp;&nbsp;
+                <button className='decrease' onClick={() => {setStudyTime(Math.max(25, studyTime - 5)); setTimeChanged(true); }} disabled={isRunning}>-</button>
+                <br />
+                <span className='break-time'>Break Time: {breakTime} minutes </span>
+                <button className='increase' onClick={() => {setBreakTime(Math.min(20, breakTime + 5)); setTimeChanged(true); }} disabled={isRunning}>+</button> &nbsp;&nbsp;
+                <button className='decrease' onClick={() => {setBreakTime(Math.max(5, breakTime - 5)); setTimeChanged(true); }} disabled={isRunning}>-</button>
             </div>}
-            <div>
-    {isStudy ? 'Study Time' : 'Break Time'}
-</div>
-            <div>
-    {formatTime(timer)}
-</div>
+
+            {isRunning && isStudy && <span className='comment'>WORK HARD :)</span>}
+            {isRunning && !isStudy && <span className='comment'>😪😪</span>}
+
+            <button className='btn-running' onClick={() => setIsRunning(!isRunning)}>{isRunning ? 'STOP' : 'START!'}</button>
         </div>
     );
 }

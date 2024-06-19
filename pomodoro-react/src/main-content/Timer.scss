@@ -1,0 +1,82 @@
+$black: #252021;
+$light: #D8DBE2;
+$pale: #B7CEE8;
+$navy: #577399;
+$dark: #495867;
+$white: #FFFFFF;
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,400|PT+Mono&display=swap');
+
+$font: 'Raleway', sans-serif;
+$mono: 'PT Mono', monospace;
+$ease: all .3s ease;
+
+.timer-area {
+    font-family: $font;
+    // background-color: $light;
+    height: 25rem;
+    text-align: center;
+
+    .total-time {
+        font-size: 2.2rem;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        color: $navy;
+        text-align: center;
+        padding: 3rem 0 2rem;
+    }
+
+    .time-zone {
+        margin-bottom: 2rem;
+        text-align: center;
+        .study-time, .break-time {
+            color: $navy;
+            font-size: 1.4rem;
+        }
+        .increase, .decrease {
+            font-size: 1.2rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            text-align: center;
+            border-radius: 50%;
+            border: none;
+			background:none;
+			color: $navy;
+			text-transform:uppercase;
+			cursor:pointer;
+			transition: $ease;
+			&:hover {
+				background: $navy;
+				transition: $ease;
+				color: $white;
+			}
+        }
+    }
+
+    .comment {
+        text-align: center;
+        color: $navy;
+        font-size: 1.8rem;
+    }
+
+    .btn-running {
+        display: block;
+        padding: 0;
+        font-size: large;
+        // width:8rem;
+        height: 2rem;
+        border-radius: 20%;
+        margin: 2rem auto 3rem;
+        border: none;
+        background:none;
+        color: $navy;
+        text-transform:uppercase;
+        cursor:pointer;
+        transition: $ease;
+        &:hover {
+            background: $navy;
+            transition: $ease;
+            color: $white;
+        }
+    }
+}
