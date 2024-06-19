@@ -15,9 +15,9 @@ $ease: all .3s ease;
 .todo {
     margin:0 auto;
 	padding:1rem 2rem 2rem;
-	color:#FFF;
+	color:$navy;
 	overflow-y: auto;
-
+	font-family: $font;
 	.title {
 		font-weight:normal;
 		font-size:2.2rem;
@@ -25,8 +25,7 @@ $ease: all .3s ease;
 	}
 	.sub-comment {
 		display:block;
-		font-size:1rem;
-		font-weight: lighter;
+		font-size:0.8rem;
 		margin-bottom:1rem;
 		border-bottom:1px solid rgba(255,255,255,.3); 
 	}
@@ -39,7 +38,8 @@ $ease: all .3s ease;
 
 		.todo-input {
 			border:none;
-			background:#f7f1f1;
+			color: $navy;
+			border-bottom: 1px solid $navy;
 			font-size: 1rem;
 			font-weight: lighter;
 			width: 20rem;
@@ -53,18 +53,20 @@ $ease: all .3s ease;
 			height: 2.2rem;
 			border:none;
 			background:none;
-			color:white;
+			color: $navy;
 			text-transform:uppercase;
 			font-weight:bold;
-			border:1px solid rgba(255,255,255,.3);
+			border:1px solid $pale;
 			cursor:pointer;
-			transition:background .2s ease-out;
+			transition: $ease;
 			&:hover {
-				background:rgba(255,255,255,.1);
+				background: $pale;
+				transition: $ease;
+				color: $white;
 			}
 		}
 		.input, .btn-add {
-			font-family:'Quicksand', sans-serif;
+			font-family: $font;
 		}
 	}
 
@@ -80,7 +82,7 @@ $ease: all .3s ease;
 			input[type="checkbox"] {
 				cursor: pointer;
 				appearance: none;
-				background-color: $white;
+				background-color: $pale;
 				border-radius: 50%;
 				width: 1rem;
 				height: 1rem;
@@ -112,15 +114,18 @@ $ease: all .3s ease;
 		.btn-delete {
 			border:none;
 			background:none;
-			color:white;
+			color:$navy;
 			text-transform:uppercase;
 			font-weight:bold;
+			font-family: $font;
 			margin-left: 0.8rem;
-			border:1px solid rgba(255,255,255,.3);
+			border:1px solid $pale;
 			cursor:pointer;
-			transition:background .2s ease-out;
+			transition: $ease;
 			&:hover {
-				background:rgba(255,255,255,.1);
+				background: $pale;
+				transition: $ease;
+				color: $white;
 			}
 		}
 
