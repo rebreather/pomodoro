@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,400|PT+Mono&display=swap');
+
+.menu-area {
+    width: 25%;
+    height: 100%;
+    background-color: #D8DBE2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-family: 'PT Mono', monospace;
+    justify-content: center;
+    align-items: center;
+
+    .btn-timer, .btn-todo { 
+       border: transparent;
+    color: #495867;
+    margin: 0;
+    width: 100%;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: .8em;
+    letter-spacing: 1px;
+    cursor: pointer;
+    &:hover {
+      background: #FFFFFF;
+      color: #577399;
+      transition: all .3s ease;
+    }
+    &.active {
+        background: #B7CEE8;
+        color: #FFFFFF;
+        width:100%;
+        box-shadow: 1px 1px 3px rgba(#495867, .3);
+        transition: all .3s ease;
+        &:hover {
+          background: #FFFFFF;
+          color: #495867;
+          transition: all .3s ease;
+        }
+      }
+    }
+}
+

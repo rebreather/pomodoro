@@ -1,4 +1,4 @@
-import './SideMenu.scss';
+import './SideMenu.css';
 
 function Menu({setActiveContent, activeContent}: { setActiveContent: (content: string) => void, activeContent: string}) {
 
