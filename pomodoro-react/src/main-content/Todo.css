@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,400|PT+Mono&display=swap');
 
 .todo {
-    margin:0 auto;
-	padding:1rem 2rem 2rem;
+    margin: 0 auto;
+	padding: 1rem 2rem 0;
 	color:#577399;
+	height: calc(100% - 1rem);
 	overflow-y: auto;
 	font-family: 'Raleway', sans-serif;
 	.title {

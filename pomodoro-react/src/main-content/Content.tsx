@@ -5,10 +5,8 @@ import Todo from './Todo';
 function Content({ activeContent }: { activeContent: string}) {
     return (
         <div className="content-area">
-            <div className='menu'>
-                {activeContent === 'timer' && <div className='todo-content'><Timer /></div>}
-                {activeContent === 'todo' && <span className='todo-content'><Todo /></span>}
-            </div>
+            {activeContent === 'timer' &&<Timer />}
+            {activeContent === 'todo' &&<Todo />}
         </div>
     );
 }
