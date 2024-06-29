@@ -12,8 +12,5 @@
     },
     "permissions": [
         "unlimitedStorage"
-    ],
-    "chrome_url_overrides" : {
-        "newtab": "js/index.html"
-    }
+    ]
 }
