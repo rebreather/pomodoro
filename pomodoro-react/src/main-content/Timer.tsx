@@ -1,23 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import useTimerStore from '../stores/timer';
 import './Timer.css';
 
 function Timer() {
-    const [studyTime, setStudyTime] = useState(25);
-    const [breakTime, setBreakTime] = useState(5);
-    const [timer, setTimer] = useState(studyTime * 60);
-    const [isStudy, setIsStudy] = useState(true);
-    const [isRunning, setIsRunning] = useState(false);
-    const [timeChanged, setTimeChanged] = useState(false);
+
+    const { studyTime, setStudyTime, breakTime, setBreakTime,
+        timer, setTimer, isStudy, setIsStudy, isRunning, setIsRunning,
+        timeChanged, setTimeChanged
+      } = useTimerStore();
 
     useEffect(() => {
-        let interval: NodeJS.Timeout;
-        if (isRunning) {
+        let interval: NodeJS.Timeout | null = null;
+
+        if (isRunning && timer > 0) {
             interval = setInterval(() => {
-                setTimer(prevTimer => prevTimer - 1);
+              setTimer(timer - 1);
             }, 1000);
-        }
-        return () => clearInterval(interval);
-    }, [isRunning]);
+          }
+      
+          return () => {
+            if (interval) clearInterval(interval);
+          };
+    }, [isRunning, setTimer, timer]);
 
     useEffect(() => {
         if (!isRunning && timeChanged) {
@@ -30,7 +34,7 @@ function Timer() {
             setTimer((isStudy ? breakTime : studyTime) * 60);
         }
         
-    }, [isRunning, studyTime, timeChanged, timer, isStudy, breakTime]);
+    }, [setIsStudy, isRunning, studyTime, timeChanged, timer, isStudy, breakTime, setTimeChanged, setTimer]);
 
     const formatTime = (time: number) => {
         const minutes = Math.floor(time / 60);
@@ -54,7 +58,7 @@ function Timer() {
             </div>}
 
             {isRunning && isStudy && <span className='comment'>WORK HARD :)</span>}
-            {isRunning && !isStudy && <span className='comment'>😪😪</span>}
+            {isRunning && !isStudy && <span className='comment'>Time to Break😪😪</span>}
 
             <button className='btn-running' onClick={() => setIsRunning(!isRunning)}>{isRunning ? 'STOP' : 'START!'}</button>
         </div>
