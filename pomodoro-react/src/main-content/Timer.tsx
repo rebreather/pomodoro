@@ -5,23 +5,9 @@ import './Timer.css';
 function Timer() {
 
     const { studyTime, setStudyTime, breakTime, setBreakTime,
-        timer, setTimer, isStudy, setIsStudy, isRunning, setIsRunning,
-        timeChanged, setTimeChanged
+        timer, setTimer, isStudy, setIsStudy, isRunning,
+        timeChanged, setTimeChanged, toggleTimer
       } = useTimerStore();
-
-    useEffect(() => {
-        let interval: NodeJS.Timeout | null = null;
-
-        if (isRunning && timer > 0) {
-            interval = setInterval(() => {
-              setTimer(timer - 1);
-            }, 1000);
-          }
-      
-          return () => {
-            if (interval) clearInterval(interval);
-          };
-    }, [isRunning, setTimer, timer]);
 
     useEffect(() => {
         if (!isRunning && timeChanged) {
@@ -60,7 +46,7 @@ function Timer() {
             {isRunning && isStudy && <span className='comment'>WORK HARD :)</span>}
             {isRunning && !isStudy && <span className='comment'>Time to Break😪😪</span>}
 
-            <button className='btn-running' onClick={() => setIsRunning(!isRunning)}>{isRunning ? 'STOP' : 'START!'}</button>
+            <button className='btn-running' onClick={toggleTimer}>{isRunning ? 'STOP' : 'START!'}</button>
         </div>
     );
 }
